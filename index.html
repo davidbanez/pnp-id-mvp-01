@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="National Police Clearance ID System — Apply for your NPC Certificate online. Fast, secure, and paperless.">
+  <title>PNP Clearance ID System | Republic of the Philippines</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Extra inline tweaks for layout */
+    #sidebar {
+      display: none;
+    }
+
+    body.app-loaded #sidebar {
+      display: flex;
+    }
+
+    body.guest-mode #sidebar {
+      display: none !important;
+    }
+
+    body.guest-mode #main-content {
+      margin-left: 0 !important;
+    }
+
+    .layout .main-content {
+      margin-left: var(--sidebar-width);
+    }
+
+    @media (max-width: 768px) {
+      .layout .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="Navbar.toggleMobile()" aria-label="Toggle Menu">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Main Navigation"></nav>
+
+  <!-- App Mount Point -->
+  <div id="app">
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loading-screen">
+      <div style="text-align:center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Philippine_National_Police_seal.svg"
+          style="width:64px;height:64px;margin-bottom:20px;animation:pulse 2s ease-in-out infinite;object-fit:contain"
+          alt="PNP Logo">
+        <div class="spinner" style="margin-bottom:16px"></div>
+        <p style="color:var(--text-secondary)">Loading PNP Clearance System...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SERVICES ========== -->
+  <script src="js/services/storage.js"></script>
+  <script src="js/services/theme.js"></script>
+  <script src="js/utils/helpers.js"></script>
+  <script src="js/utils/warrant-check.js"></script>
+  <script src="js/utils/qr.js"></script>
+  <script src="js/services/user.js"></script>
+  <script src="js/services/application.js"></script>
+  <script src="js/services/printerService.js"></script>
+  <script src="js/services/jsonbin.js"></script>
+
+  <!-- ========== ROUTER ========== -->
+  <script src="js/router.js"></script>
+
+  <!-- ========== COMPONENTS ========== -->
+  <script src="js/components/navbar.js"></script>
+
+  <!-- ========== VIEWS ========== -->
+  <script src="js/views/landing.js"></script>
+  <script src="js/views/how-it-works.js"></script>
+  <script src="js/views/services.js"></script>
+  <script src="js/views/faqs.js"></script>
+  <script src="js/views/login.js"></script>
+  <script src="js/views/register.js"></script>
+  <script src="js/views/onboarding.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/apply.js"></script>
+  <script src="js/views/payment.js"></script>
+  <script src="js/views/applications.js"></script>
+  <script src="js/views/application-detail.js"></script>
+  <script src="js/views/id-card.js"></script>
+  <script src="js/views/certificate.js"></script>
+  <script src="js/views/profile.js"></script>
+  <script src="js/views/admin.js"></script>
+  <script src="js/views/verify.js"></script>
+
+  <!-- ========== BOOT ========== -->
+  <script src="js/app.js"></script>
+
+  <script>
+    // Remove loading screen after boot
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('loading-screen');
+        if (loader) loader.remove();
+      }, 600);
+    });
+  </script>
+</body>
+
+</html>
